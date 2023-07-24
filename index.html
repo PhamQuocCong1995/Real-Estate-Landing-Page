@@ -84,6 +84,7 @@
 
         <!-- Style CSS -->
         <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/responsive.css" />
 
         <!-- Stylesheet -->
         <link rel="stylesheet" href="./assets/font/stylesheet.css" />
@@ -95,39 +96,51 @@
         />
     </head>
     <body>
-        <!-- Header -->
+        <!-- PC Header -->
         <header class="fixed-header">
             <div class="container">
                 <div class="header__navbar">
+                    <!-- Tablet/Mobile menu -->
+                    <label for="menu-checkbox" class="toggle-menu">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="2em"
+                            viewBox="0 0 448 512"
+                        >
+                            <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path
+                                fill="currentColor"
+                                d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+                            />
+                        </svg>
+                    </label>
                     <!-- Logo -->
                     <a href="#">
                         <img src="./assets/img/Logo.svg" alt="" class="logo" />
                     </a>
                     <!-- Navbar -->
-                    <nav class="navbar">
-                        <ul class="navbar__list">
+                    <nav>
+                        <ul id="pc-nav">
                             <li>
-                                <a href="#" class="navbar__link"> Home </a>
+                                <a href="#"> Home </a>
                             </li>
                             <li>
-                                <a href="#feature" class="navbar__link">
-                                    Features
-                                </a>
+                                <a href="#feature"> Features </a>
                             </li>
                             <li>
-                                <a href="#service" class="navbar__link">
-                                    Services
-                                </a>
+                                <a href="#service"> Services </a>
                             </li>
                             <li>
-                                <a href="#resource" class="navbar__link">
-                                    Resources
-                                </a>
+                                <a href="#resource"> Resources </a>
                             </li>
                             <li>
-                                <a href="#contact" class="navbar__link">
-                                    Contact
-                                </a>
+                                <a href="#contact"> Contact </a>
+                            </li>
+                            <li class="show-on-mobile separate">
+                                <a href="#!">Sign in</a>
+                            </li>
+                            <li class="show-on-mobile">
+                                <a href="#!">Sign up</a>
                             </li>
                         </ul>
                     </nav>
@@ -139,6 +152,36 @@
                         >
                     </div>
                 </div>
+            </div>
+        </header>
+
+        <!-- Tablet/Mobile Header -->
+        <header class="mobile-header">
+            <!--  -->
+            <input
+                type="checkbox"
+                name=""
+                id="menu-checkbox"
+                class="menu-checkbox"
+                hidden
+            />
+            <!-- Overlay -->
+            <label for="menu-checkbox" class="menu-overlay"></label>
+            <!-- Menu content -->
+            <div class="menu-drawer">
+                <!-- Logo -->
+                <a href="#">
+                    <img src="./assets/img/Logo-02.svg" alt="" class="logo" />
+                </a>
+                <!-- Navigation -->
+                <ul id="mobile-nav"></ul>
+                <script>
+                    const pcNav = document.querySelector("#pc-nav");
+                    const mobileNav = document.querySelector("#mobile-nav");
+
+                    //Copy from Pc nav -> Mobile nav
+                    mobileNav.innerHTML = pcNav.innerHTML;
+                </script>
             </div>
         </header>
         <main>
@@ -181,7 +224,9 @@
                             <span
                                 >More than 45,000+ companies trust besnik</span
                             >
-                            <span>5 Star Ratings (2k+ Review)</span>
+                            <span class="hide-on-mobile"
+                                >5 Star Ratings (2k+ Review)</span
+                            >
                         </div>
 
                         <div class="logos">
@@ -427,6 +472,15 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="view-all">
+                            <a
+                                href="#!"
+                                class="btn view-all-btn show-on-mobile"
+                            >
+                                <span>View All Properties</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -626,7 +680,11 @@
                             <p class="desc">
                                 Subscribe to our newsletter and stay updated.
                             </p>
-                            <a href="#!" class="btn subscribe-btn">Subscribe</a>
+                            <div class="mobile-sub">
+                                <a href="#!" class="btn subscribe-btn">
+                                    Subscribe
+                                </a>
+                            </div>
                         </div>
                         <img
                             src="./assets/img/home-illustration.svg"
@@ -641,7 +699,7 @@
         <footer id="contact" class="footer">
             <div class="container">
                 <div class="footer__inner">
-                    <div class="row">
+                    <div class="row mobile-row">
                         <!-- footer column 1 -->
                         <div class="footer__column">
                             <h3 class="heading">Product</h3>
